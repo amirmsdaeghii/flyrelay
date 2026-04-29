@@ -1,0 +1,25 @@
+app = "my-xhttp-relay"     # ← این اسم رو عوض کن (مثلاً xhttp-myrelay)
+
+[env]
+  BACKEND_URL = "http://79.137.196.167:8443"   # ← اینجا IP یا دامنه + پورت سرور اصلیت رو بزن
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+  [services.http_checks]
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/"
+    protocol = "http"

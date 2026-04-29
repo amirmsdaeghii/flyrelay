@@ -1,0 +1,16 @@
+{
+  "name": "xhttp-relay-fly",
+  "version": "1.0.0",
+  "description": "XHTTP Relay for Xray/V2Ray on Fly.io",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
